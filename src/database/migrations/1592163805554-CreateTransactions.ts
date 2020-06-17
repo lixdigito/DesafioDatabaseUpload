@@ -24,7 +24,7 @@ export class CreateTransactions1592163805554 implements MigrationInterface {
                     },
                     {
                         name: 'value',
-                        type: 'float_8',
+                        type: 'float',
                     },
                     {
                         name: 'category_id',
