@@ -17,10 +17,10 @@ class CreateTransactionService {
     const categoriesRepository = getRepository(Category);
     const transactionRepository = getRepository(Transaction);
     const categoryExist = await categoriesRepository.findOne({ where: { title: category }});
+    
     let category_id;
-
-    if (type === 'outcome') {
-      const {total} = await transactionsRepository.getBalance();
+    if (type == 'outcome') {
+      const {total} = await transactionsRepository.getBalance();      
       if (value > total) throw new AppError('Total is insufficient for outcome.');
     }
 
@@ -40,7 +40,6 @@ class CreateTransactionService {
       value,
       category_id
     });
-    
     
     await transactionRepository.save(newTransaction);
     
